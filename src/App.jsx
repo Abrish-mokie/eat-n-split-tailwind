@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import initialFriends from './values/initialFriends';
-import Button from './components/Button';
-import FriendsList from './components/FriendsList';
-import FormAddFriend from './components/FormAddFriend';
-import FormSplitBill from './components/FormSplitBill';
+import { useState } from "react";
+import initialFriends from "./values/initialFriends";
+import Button from "./components/Button";
+import FriendsList from "./components/FriendsList";
+import FormAddFriend from "./components/FormAddFriend";
+import FormSplitBill from "./components/FormSplitBill";
 
 export default function App() {
   const [friends, setFriends] = useState(initialFriends);
@@ -30,17 +30,17 @@ export default function App() {
       friends.map((friend) =>
         friend.id === selectedFriend.id
           ? { ...friend, balance: friend.balance + value }
-          : friend
-      )
+          : friend,
+      ),
     );
 
     setSelectedFriend(null);
   }
 
   return (
-    <div className='h-screen flex flex-row-[1fr,1.5fr]  justify-center items-start'>
-      <div className='flex flex-col sm:flex-row justify-items-start items-start sm:gap-x-10 gap-y-10 sm:pt-0 mt-32'>
-        <div className='flex block flex-col gap-2 text-base min-w-[600px]'>
+    <div className="flex h-screen items-center justify-center md:items-start">
+      <div className="mt-32 flex flex-col items-start justify-items-start gap-y-10 md:flex-row md:gap-x-10">
+        <div className="mx-2 flex min-w-[580px] max-w-[680px] flex-col gap-2 text-base">
           <FriendsList
             friends={friends}
             selectedFriend={selectedFriend}
@@ -48,9 +48,9 @@ export default function App() {
           />
 
           {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
-          <div className='flex justify-end m-5'>
+          <div className="m-5 flex justify-end">
             <Button onClick={handleShowAddFriend}>
-              {showAddFriend ? 'Close' : 'Add friend'}
+              {showAddFriend ? "Close" : "Add friend"}
             </Button>
           </div>
         </div>
